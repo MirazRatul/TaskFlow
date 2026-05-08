@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow Pro</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">✓</div>
+      <div>
+        <h1>TaskFlow</h1>
+        <p>Project Planner</p>
+      </div>
+    </div>
+
+    <nav>
+      <button class="nav-btn active" data-filter="all">All Tasks</button>
+      <button class="nav-btn" data-filter="todo">To Do</button>
+      <button class="nav-btn" data-filter="progress">In Progress</button>
+      <button class="nav-btn" data-filter="done">Done</button>
+    </nav>
+
+    <div class="sidebar-card">
+      <h3>Productivity Tip</h3>
+      <p>Break large tasks into small actions and complete the hardest one first.</p>
+    </div>
+  </aside>
+
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <h2>Dashboard</h2>
+        <p id="todayText"></p>
+      </div>
+      <button id="themeToggle" class="theme-btn">🌙</button>
+    </header>
+
+    <section class="stats">
+      <article class="stat-card">
+        <span>Total</span>
+        <strong id="totalTasks">0</strong>
+      </article>
+      <article class="stat-card">
+        <span>To Do</span>
+        <strong id="todoTasks">0</strong>
+      </article>
+      <article class="stat-card">
+        <span>Progress</span>
+        <strong id="progressTasks">0</strong>
+      </article>
+      <article class="stat-card">
+        <span>Done</span>
+        <strong id="doneTasks">0</strong>
+      </article>
+    </section>
+
+    <section class="panel">
+      <form id="taskForm" class="task-form">
+        <input id="taskTitle" type="text" placeholder="Task title" required />
+        <input id="taskDate" type="date" required />
+        <select id="taskPriority">
+          <option value="low">Low Priority</option>
+          <option value="medium" selected>Medium Priority</option>
+          <option value="high">High Priority</option>
+        </select>
+        <select id="taskStatus">
+          <option value="todo">To Do</option>
+          <option value="progress">In Progress</option>
+          <option value="done">Done</option>
+        </select>
+        <button type="submit">Add Task</button>
+      </form>
+
+      <div class="toolbar">
+        <input id="searchInput" type="search" placeholder="Search tasks..." />
+        <select id="sortSelect">
+          <option value="newest">Newest First</option>
+          <option value="oldest">Oldest First</option>
+          <option value="priority">Priority</option>
+          <option value="date">Due Date</option>
+        </select>
+      </div>
+
+      <div id="taskList" class="task-list"></div>
+      <p id="emptyState" class="empty-state">No tasks found. Add your first task!</p>
+    </section>
+  </main>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
